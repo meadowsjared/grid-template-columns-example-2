@@ -1,0 +1,208 @@
+.content-grid {
+  display: grid;
+  grid-template-columns:
+    [full-width-start breakout-left-start] minmax(2rem, 1fr)
+    [content-start breakout-right-start left-side-start] min(33%, 20rem)
+    [left-side-end] min(33% - 6rem, 20rem)
+    [spacing-area-start content-end] 2rem
+    [spacing-area-end right-side-start] min(33%, 20rem)
+    [breakout-left-end right-side-end] minmax(2rem, 1fr)
+    [breakout-right-end full-width-end];
+}
+
+.content-grid > *,
+.full-width > * {
+  grid-column: content;
+}
+
+.content-grip > .full-width {
+  grid-column: full-width;
+
+  display: grid;
+  grid-template-columns: inherit;
+}
+
+.primary-header {
+  grid-template-columns: inherit;
+  grid-column: content;
+  /* margin-block-end: 3rem; */
+  border-block-end: 1px solid var(--separator-color);
+}
+
+.line {
+  grid-template-columns: inherit;
+  grid-column: full-width;
+  border-bottom: 2px solid var(--text-color);
+  margin-bottom: 3rem;
+}
+
+.primary-header__layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  /* grid-column: full-width; */
+
+  /*grid-column: content-start / full-end; /* normal */
+  grid-column: breakout-right; /* it breaks out to the right */
+  /*grid-column: breakout-left; /* it breaks out to the left */
+}
+
+.primary-navigation > ul {
+  list-style: none;
+  margin: 0;
+  padding: var(--navigation-padding) 0;
+  display: flex;
+  gap: clamp(1rem, 5vi, 2.5rem);
+}
+
+.account-links > ul > li > a {
+  padding: var(--navigation-padding) 0;
+}
+
+:is(.primary-navigation, .account-links) :has(ul) {
+  list-style: none;
+  margin: 0;
+  padding: var(--navigation-padding) 0;
+  display: flex;
+  gap: clamp(1rem, 5vi, 2.5rem);
+}
+
+.conference-list div:not(:last-child) {
+  border-bottom: 1px solid var(--text-color);
+}
+
+.sidebar {
+  grid-column: right-side;
+  grid-row: 4 / span 3;
+  border: 1px solid var(--accent-color);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+/* mobile CSS rules */
+@media (max-width: 600px) {
+  .sidebar {
+    grid-column: content;
+    grid-row: unset;
+    order: 2;
+  }
+  .content-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .conference-list {
+    padding: 2rem;
+  }
+  .breadcrumbs,
+  .primary-header {
+    padding: 0 2rem;
+  }
+  .primary-header__layout {
+    padding-left: 2rem;
+  }
+}
+
+/* Define some custom properties for consistent spacing and colors */
+:root {
+  --separator-color: #ccc;
+  --navigation-padding: 1rem;
+  --header-font-size: 2rem; /* Adjust as needed */
+  --section-title-font-size: 1.5rem; /* Adjust as needed */
+  --body-bg-color: #fff; /* Adjust as needed */
+  --text-color: #333; /* Adjust as needed */
+  --accent-color: #ddd;
+  --link-color: #333; /* Adjust as needed */
+  --link-hover-color: #0055a3; /* Adjust as needed */
+}
+
+body {
+  font-family: "Arial", sans-serif; /* Change to match your design */
+  background-color: var(--body-bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Style for the section titles */
+h2 {
+  font-size: var(--section-title-font-size);
+  margin: 0.5rem 0; /* Adjust as needed */
+}
+
+/* Adjusts the padding and margin for the sidebar titles */
+.sidebar .title {
+  font-weight: bold;
+  margin-top: 2rem; /* Adjust as needed */
+}
+
+.category-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumbs > span {
+  background: var(--accent-color);
+  padding: 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Style for the buttons */
+button {
+  padding: 0.5rem 1rem; /* Adjust as needed */
+  border: none;
+  border-radius: 5px; /* Adjust as needed for the pill shape */
+  background-color: #f5f5f5; /* Adjust as needed */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #eaeaea; /* Adjust as needed */
+}
+
+button.active {
+  background: var(--text-color);
+  color: var(--body-bg-color);
+}
+
+.primary-header__layout {
+  /* padding-left: 3rem; */ /* don't do it here, use css grid */
+  color: var(--text-color);
+}
+
+.account-links > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; /* Adjust padding as needed */
+  display: flex; /* This will line up the 'li' elements side by side */
+  gap: 1rem; /* Adjust gap as needed */
+  min-width: max-content;
+}
+.account-links > ul > li:first-child {
+  padding: 1rem;
+  /* background: green; */
+}
+.account-links > ul > li:last-child {
+  padding: 1rem;
+  background: var(--text-color);
+}
+.account-links > ul > li:last-child > a {
+  color: var(--body-bg-color);
+}
+/** end */
+
+/* .something {
+    margin-block-start: var(--flow-spacing, 1rem);
+  } */
