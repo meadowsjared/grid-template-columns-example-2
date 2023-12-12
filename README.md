@@ -37,8 +37,8 @@ To understand how these names are defined controlled, it's here:
     [full-width-start breakout-left-start] minmax(2rem, 1fr)
     [content-start breakout-right-start left-side-start] min(33%, 20rem)
     [left-side-end] min(33% - 6rem, 20rem)
-    [spacing-area-start content-end] 2rem
-    [spacing-area-end right-side-start] min(33%, 20rem)
+    [content-end] 2rem
+    [right-side-start] min(33%, 20rem)
     [breakout-left-end right-side-end] minmax(2rem, 1fr)
     [breakout-right-end full-width-end];
 }
