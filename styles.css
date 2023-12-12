@@ -29,6 +29,10 @@
   border-block-end: 1px solid var(--separator-color);
 }
 
+.primary-header > h1 {
+  margin-block-start: 0;
+}
+
 .line {
   grid-template-columns: inherit;
   grid-column: full-width;
@@ -151,12 +155,23 @@ h2 {
   flex-wrap: wrap;
 }
 
-.breadcrumbs > span {
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.breadcrumbs > span:not(.slash) {
   background: var(--accent-color);
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 2rem;
   font-weight: 600;
   display: inline-block;
+}
+.breadcrumbs > span.slash {
+  font-size: 2.5rem;
+  /* font-weight: 800; */
 }
 
 /* Style for the buttons */
