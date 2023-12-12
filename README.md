@@ -43,8 +43,9 @@ To understand how these names are defined controlled, it's here:
     [breakout-right-end full-width-end];
 }
 </pre>
-Each grid line is named within square brackets, followed by a defined space using CSS units, which may include functions like minmax() or min(). This method precisely structures the grid layout.  
+Each grid line is named within square brackets, followed by a defined space using CSS units, which may include functions like minmax() or min(). This method precisely structures the grid layout.
 >Note: you can have multiple names for a line name, which allows you to define overlapping areas like `breakout-right` and `content`
+
 Any lines that have the same prefix but one ends in `<prefix>-start` and another ends in `<prefix>-end`, will be able to set just `grid-column:prefix;` and it will automagically start and end correctly! 🪄
 
 
